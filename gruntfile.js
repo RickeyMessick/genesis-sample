@@ -124,7 +124,7 @@ module.exports = function(grunt) {
 
 		shell: {
 			grunt: {
-				command: 'afplay grunt.mp3'
+				command: 'afplay ding.wav'
 			}
 		},
 
