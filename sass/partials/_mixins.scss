@@ -11,3 +11,88 @@
     -o-transition: $transition-property $transition-time $method;
     transition: $transition-property $transition-time $method;
 }
+// border-radius
+// Usage: @include border-radius(5px);
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+// Single side border-radius
+
+@mixin border-top-radius($radius) {
+  -webkit-border-top-right-radius: $radius;
+  border-top-right-radius: $radius;
+   -webkit-border-top-left-radius: $radius;
+   border-top-left-radius: $radius;
+   background-clip: padding-box;
+}
+@mixin border-right-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+     -webkit-border-top-right-radius: $radius;
+     border-top-right-radius: $radius;
+     background-clip: padding-box;
+}
+@mixin border-bottom-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+   -webkit-border-bottom-left-radius: $radius;
+   border-bottom-left-radius: $radius;
+   background-clip: padding-box;
+}
+@mixin border-left-radius($radius) {
+  -webkit-border-bottom-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+     -webkit-border-top-left-radius: $radius;
+     border-top-left-radius: $radius;
+     background-clip: padding-box;
+}
+
+// clearfix
+// Usage: @include clearfix();
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin placeholder($color,$size,$font){
+
+    ::-webkit-input-placeholder {
+        color: $color;
+        @include rem($size);
+        font-weight: $font;
+    }
+
+    :-moz-placeholder { /* Firefox 18- */
+        color: $color;
+        @include rem($size);
+        font-weight: $font;
+    }
+
+    ::-moz-placeholder {  /* Firefox 19+ */
+        color: $color;
+        @include rem($size);
+        font-weight: $font;
+    }
+
+    :-ms-input-placeholder {  
+        color: $color; 
+        @include rem($size); 
+        font-weight: $font;
+    }   
+}
+
+@mixin animationNav($seg) {
+    -webkit-transition: $seg ease-in-out;
+    -moz-transition: $seg ease-in-out;
+    -o-transition: $seg ease-in-out;
+    transition: $seg ease-in-out;
+}
